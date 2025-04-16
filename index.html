@@ -3,35 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>K_afe | Cafeteria clássica</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <title>K-afé - Nossa História</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header>
-    <div class="logo">K_afe</div>
-    <h1>Bem-vindo</h1>
+  <!-- Botão de Acessibilidade -->
+  <button class="btn-acessibilidade" onclick="alert('Modo de acessibilidade em breve disponível!')">
+    Acessibilidade
+  </button>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="menu.html">Cardápio</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
+  <!-- Botão WhatsApp -->
+  <a class="whatsapp-fale" href="https://wa.me/55119990005" target="_blank">
+    Fale Conosco
+  </a>
+
+  <header class="home-header">
+    <h1>Bem-vindo ao K-afé ☕</h1>
+    <p>O seu lugar de momentos especiais e cafés inesquecíveis.</p>
   </header>
 
-  <section class="hero">
-    <div class="hero-texto">
-      <h1>Bem-vindo à K_afe</h1>
-      <p>O sabor do café clássico com o charme que você merece.</p>
-      <p>Teste 01 push git hub</p>
-      <a href="menu.html" class="botao">Ver Cardápio</a>
+  <section class="historia">
+    <h2>Quem Somos</h2>
+    <p>
+      Fundado em 2005, o <strong>K-afé</strong> nasceu da paixão por cafés especiais e momentos acolhedores. Inspirado nas cafeterias parisienses e no calor da cultura brasileira, somos um espaço onde o aroma do café se mistura com boas conversas, risadas e sabores inesquecíveis.
+    </p>
+  </section>
+
+  <section class="opcoes-pedido">
+    <h2>Como você quer fazer o seu pedido?</h2>
+    <div class="opcao">
+      <button onclick="location.href='pedido_ifood.html'">Pedir pelo Ifood</button>
+    </div>
+    <div class="opcao">
+      <button onclick="location.href='pedido_retirar.html'">Retirar na loja</button>
+    </div>
+    <div class="opcao">
+      <button onclick="location.href='pedido_local.html'">Consumir na cafeteria</button>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 K_afe - Todos os direitos reservados</p>
+    <p>&copy; 2025 K-afé. Todos os direitos reservados.</p>
   </footer>
 </body>
 </html>

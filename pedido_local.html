@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>K-afé - Cardápio</title>
+  <link rel="stylesheet" href="css/pedido_ifood.css" />
+</head>
+<body>
+  <header>
+    <h1>Bem-vindo ao K-afé IFOOD 🍕🍟🥤🛵</h1>
+    <h2>Receba seu pedido no conforto da sua casa🏠</h2>
+  </header>
+
+  <main class="produtos-container">
+    <!-- Cada produto tem uma div com imagem, nome, preço e input de quantidade -->
+    <div class="produto" data-nome="Bolo de Banana" data-preco="10.00">
+      <img src="imagens/bolo_banana.jpg" alt="Bolo de Banana" />
+      <h2>Bolo de Banana</h2>
+      <p>R$ 10,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Bolo de Cenoura com Nozes" data-preco="12.00">
+      <img src="imagens/bolo_cenoura_nozes.jpg" alt="Bolo de Cenoura com Nozes" />
+      <h2>Bolo Cenoura com Nozes</h2>
+      <p>R$ 12,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Bolo de Chocolate" data-preco="14.00">
+      <img src="imagens/bolo_chocolate.jpg" alt="Bolo de Chocolate" />
+      <h2>Bolo de Chocolate</h2>
+      <p>R$ 14,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Bolo de Baunilha com Morango" data-preco="13.00">
+      <img src="imagens/bolo_creme_de_baunilha_com_moranho.jpg" alt="Bolo Baunilha com Morango" />
+      <h2>Bolo Baunilha com Morango</h2>
+      <p>R$ 13,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Mousse de Chocolate" data-preco="11.00">
+      <img src="imagens/bolo_mousse-de_chocolate.jpg" alt="Mousse de Chocolate" />
+      <h2>Mousse de Chocolate</h2>
+      <p>R$ 11,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Café Expresso" data-preco="6.00">
+      <img src="imagens/cafe_expresso.jpg" alt="Café Expresso" />
+      <h2>Café Expresso</h2>
+      <p>R$ 6,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Café com Leite" data-preco="7.00">
+      <img src="imagens/café_com_leite.jpg" alt="Café com Leite" />
+      <h2>Café com Leite</h2>
+      <p>R$ 7,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Capuccino" data-preco="8.00">
+      <img src="imagens/capuccino.jpg" alt="Capuccino" />
+      <h2>Capuccino</h2>
+      <p>R$ 8,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Croissant" data-preco="9.00">
+      <img src="imagens/croissant.jpg" alt="Croissant" />
+      <h2>Croissant</h2>
+      <p>R$ 9,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Cupcake de Chocolate" data-preco="6.50">
+      <img src="imagens/cupcake_de_chocolate.jpg" alt="Cupcake de Chocolate" />
+      <h2>Cupcake de Chocolate</h2>
+      <p>R$ 6,50</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Cupcakes" data-preco="10.00">
+      <img src="imagens/cupcakes.jpg" alt="Cupcakes" />
+      <h2>Cupcakes Sortidos</h2>
+      <p>R$ 10,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Muffin" data-preco="6.00">
+      <img src="imagens/muffin.jpg" alt="Muffin" />
+      <h2>Muffin</h2>
+      <p>R$ 6,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Pão de Queijo" data-preco="4.00">
+      <img src="imagens/pão_de_queijo.jpg" alt="Pão de Queijo" />
+      <h2>Pão de Queijo</h2>
+      <p>R$ 4,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+
+    <div class="produto" data-nome="Torta de Morango" data-preco="12.00">
+      <img src="imagens/torta_de_morango.jpg" alt="Torta de Morango" />
+      <h2>Torta de Morango</h2>
+      <p>R$ 12,00</p>
+      <label>Qtd:
+        <input type="number" min="0" value="0" />
+      </label>
+    </div>
+  </main>
+
+  <div class="resumo-total">
+    <h3>Total do Pedido: R$ <span id="totalPedido">0.00</span></h3>
+  </div>
+
+  <div class="finalizar">
+    <button onclick="finalizarPedido()">Finalizar Pedido</button>
+    <a href="index.html" class="botao-voltar">Voltar à Página Inicial</a>
+  </div>
+
+  <!-- Link para o JS -->
+  <script src="js/pedido_ifood.js"></script>
+</body>
+</html>
