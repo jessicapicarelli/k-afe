@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-afe - Doces</title>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FAF9F6;
+            font-family: 'Questrial', sans-serif;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: #361D20;
+            margin-bottom: 80px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .menu-item-info {
+            flex: 1;
+        }
+
+        .menu-item-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #361D20;
+            margin-bottom: 15px;
+        }
+
+        .menu-item-price {
+            display: inline;
+            color: #361D20;
+        }
+
+        .menu-item-description {
+            font-size: 20px;
+            color: #361D20;
+            line-height: 1.4;
+            max-width: 300px;
+        }
+
+        .menu-item-image {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background-color: #FAF9F6;
+        }
+
+        .bottom-nav a {
+            text-decoration: none;
+            color: #361D20;
+            font-size: 32px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title">DOCES</h1>
+
+    <div class="menu-grid">
+        <div class="menu-item">
+            <img src="imagens/Mochi.jpeg" alt="Mochi" class="menu-item-image">
+            <div class="menu-item-info">
+                <div class="menu-item-title">Mochi - R$15</div>
+                <div class="menu-item-description">Delicioso mochi recheado com os mais variados sabores, uma iguaria japonesa.</div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="imagens/Taiyaki.jpeg" alt="Taiyaki" class="menu-item-image">
+            <div class="menu-item-info">
+                <div class="menu-item-title">Taiyaki - R$20</div>
+                <div class="menu-item-description">Delicioso taiyaki em forma de peixe, recheado com creme doce.</div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="imagens/Doce.jpeg" alt="Doce do dia" class="menu-item-image">
+            <div class="menu-item-info">
+                <div class="menu-item-title">Doce - R$20</div>
+                <div class="menu-item-description">Doces do dia, variando entre tortas, bolos ou especiais regionais.</div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="imagens/Dorayaki.jpeg" alt="Dorayaki" class="menu-item-image">
+            <div class="menu-item-info">
+                <div class="menu-item-title">Dorayaki - R$20</div>
+                <div class="menu-item-description">Bolo japonês recheado com pasta de feijão doce, perfeito para acompanhar o café.</div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="bebidas-frias.html">Bebidas Frias</a>
+        <a href="bebidas-quentes.html">Bebidas Quentes</a>
+        <a href="#menu">Menu</a>
+    </nav>
+</body>
+</html> 

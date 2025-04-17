@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-afe - Início</title>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FAF9F6;
+            font-family: 'Questrial', sans-serif;
+            min-height: 100vh;
+        }
+
+        nav {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 300px;
+            position: relative;
+            margin-top: 40px;
+        }
+
+        nav > a {
+            text-decoration: none;
+            color: #361D20;
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 100%;
+            letter-spacing: 0;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            position: relative;
+        }
+
+        nav a:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #361D20;
+        }
+
+        .menu-lateral {
+            position: fixed;
+            height: 1157px;
+            width: 415px;
+            top: -94px;
+            background-color: #361D20;
+            display: none;
+            flex-direction: column;
+            padding-top: 200px;
+            z-index: 1000;
+        }
+
+        .menu-lateral.left {
+            left: 0;
+        }
+
+        .menu-lateral.right {
+            right: 0;
+        }
+
+        .menu-lateral.active {
+            display: flex;
+        }
+
+        .menu-lateral a {
+            color: white;
+            text-decoration: none;
+            padding: 40px;
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 100%;
+            letter-spacing: 0;
+        }
+
+        .menu-lateral#menu-cardapio a {
+            margin-bottom: 160px;
+        }
+
+        .menu-lateral#menu-cardapio a:last-child {
+            margin-bottom: 0;
+        }
+
+        .menu-lateral#menu-sobre a {
+            margin-bottom: 160px;
+        }
+
+        .menu-lateral#menu-sobre a:last-child {
+            margin-bottom: 0;
+        }
+
+        .menu-lateral a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .store-image {
+            width: 1262px;
+            height: 710px;
+            object-fit: cover;
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .store-number {
+            font-size: 16px;
+            color: #361D20;
+            margin-top: 10px;
+        }
+
+        .logo {
+            font-size: 32px;
+            color: #361D20;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a id="cardapio-link">Cardápio</a>
+        <div class="menu-lateral left" id="menu-cardapio">
+            <a href="bebidas-frias.html">Bebidas Frias</a>
+            <a href="bebidas-quentes.html">Bebidas Quentes</a>
+            <a href="doces.html">Doces</a>
+        </div>
+        <a id="sobre-link">Sobre</a>
+        <div class="menu-lateral right" id="menu-sobre">
+            <a href="nossa-historia.html">Nossa História</a>
+            <a href="#missao">Missão, Visão e<br>Valores</a>
+            <a href="nosso-time.html">Nosso Time</a>
+        </div>
+    </nav>
+    <div class="main-content">
+        <img src="imagens/k-afe.jpeg" alt="Fachada da K-afe" class="store-image">
+    </div>
+
+    <script>
+        const cardapioLink = document.getElementById('cardapio-link');
+        const sobreLink = document.getElementById('sobre-link');
+        const menuCardapio = document.getElementById('menu-cardapio');
+        const menuSobre = document.getElementById('menu-sobre');
+
+        function closeAllMenus() {
+            menuCardapio.classList.remove('active');
+            menuSobre.classList.remove('active');
+        }
+
+        cardapioLink.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeAllMenus();
+            menuCardapio.classList.add('active');
+        });
+
+        sobreLink.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeAllMenus();
+            menuSobre.classList.add('active');
+        });
+
+        menuCardapio.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        menuSobre.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', closeAllMenus);
+    </script>
+</body>
+</html> 

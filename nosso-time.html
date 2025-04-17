@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-afe - Nosso Time</title>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #361D20;
+            font-family: 'Questrial', sans-serif;
+            min-height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .content {
+            padding: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        .team-member-name {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .team-member-role {
+            font-size: 24px;
+        }
+
+        .bottom-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .bottom-nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background-color: transparent;
+        }
+
+        .bottom-nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 class="page-title">NOSSO TIME</h1>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="imagens/Time/andrezzabatista.png" alt="Andrezza Batista">
+                <div class="team-member-name">Andrezza</div>
+                <div class="team-member-role">Batista</div>
+            </div>
+
+            <div class="team-member">
+                <img src="imagens/Time/jessicapicarelli.png" alt="Jessica Picarelli">
+                <div class="team-member-name">Jessica</div>
+                <div class="team-member-role">Picarelli</div>
+            </div>
+
+            <div class="team-member">
+                <img src="imagens/Time/kennedysilva.png" alt="Kennedy Silva">
+                <div class="team-member-name">Kennedy</div>
+                <div class="team-member-role">Silva</div>
+            </div>
+        </div>
+
+        <div class="bottom-row">
+            <div class="team-member">
+                <img src="imagens/Time/lorrainelima.png" alt="Lorraine Lima">
+                <div class="team-member-name">Lorraine</div>
+                <div class="team-member-role">Lima</div>
+            </div>
+
+            <div class="team-member">
+                <img src="imagens/Time/thaislima.png" alt="Thais Lima">
+                <div class="team-member-name">Thais</div>
+                <div class="team-member-role">Lima</div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#menu">Menu</a>
+        <a href="#missao">Missão, Visão e Valores</a>
+        <a href="nossa-historia.html">Nossa História</a>
+    </nav>
+</body>
+</html> 

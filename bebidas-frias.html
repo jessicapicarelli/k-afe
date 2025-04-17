@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-afe - Bebidas Frias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FAF9F6;
+            font-family: 'Questrial', sans-serif;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: #361D20;
+            margin-bottom: 80px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .menu-item-info {
+            flex: 1;
+        }
+
+        .menu-item-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #361D20;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-price {
+            display: inline;
+            color: #361D20;
+        }
+
+        .menu-item-description {
+            font-size: 20px;
+            color: #361D20;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+
+        .menu-item-image {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background-color: #FAF9F6;
+        }
+
+        .bottom-nav a {
+            text-decoration: none;
+            color: #361D20;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .cold-brew {
+            grid-column: 1 / -1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title">BEBIDAS FRIAS</h1>
+
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="menu-item-info">
+                <div class="menu-item-title">Iced Latte <span class="menu-item-price">- R$17</span></div>
+                <div class="menu-item-description">Café preto servido com leite e gelo.</div>
+            </div>
+            <img src="imagens/Iced-Latte.jpeg" alt="Iced Latte" class="menu-item-image">
+        </div>
+
+        <div class="menu-item">
+            <div class="menu-item-info">
+                <div class="menu-item-title">Matcha Iced Latte <span class="menu-item-price">- R$20</span></div>
+                <div class="menu-item-description">O tradicional Matcha Latte, mas gelado.</div>
+            </div>
+            <img src="imagens/Matcha-Iced-Latte.jpeg" alt="Matcha Iced Latte" class="menu-item-image">
+        </div>
+
+        <div class="menu-item cold-brew">
+            <div class="menu-item-info">
+                <div class="menu-item-title">Cold Brew <span class="menu-item-price">- R$15</span></div>
+                <div class="menu-item-description">Café extraído a frio por 12 horas, oferecendo uma bebida suave e refrescante.</div>
+            </div>
+            <img src="imagens/Cold-Brew.jpeg" alt="Cold Brew" class="menu-item-image">
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#doces">Doces</a>
+        <a href="#bebidas-quentes">Bebidas Quentes</a>
+        <a href="#menu">Menu</a>
+    </nav>
+</body>
+</html> 

@@ -1,50 +1,207 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>K-afé - Nossa História</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-afe - Bem-vindo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #361D20;
+            font-family: 'Questrial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .explore-button {
+            background-color: white;
+            color: #361D20;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .explore-button:hover {
+            transform: scale(1.05);
+        }
+
+        nav {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 300px;
+            position: relative;
+            margin-top: 40px;
+        }
+
+        nav > a {
+            text-decoration: none;
+            color: #361D20;
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 100%;
+            letter-spacing: 0;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .menu-lateral {
+            position: fixed;
+            height: 1157px;
+            width: 415px;
+            top: -94px;
+            background-color: #361D20;
+            display: none;
+            flex-direction: column;
+            padding-top: 200px;
+            z-index: 1000;
+        }
+
+        .menu-lateral.left {
+            left: 0;
+        }
+
+        .menu-lateral.right {
+            right: 0;
+        }
+
+        .menu-lateral.active {
+            display: flex;
+        }
+
+        .menu-lateral a {
+            color: white;
+            text-decoration: none;
+            padding: 40px;
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 100%;
+            letter-spacing: 0;
+        }
+
+        .menu-lateral#menu-cardapio a {
+            margin-bottom: 160px;
+        }
+
+        .menu-lateral#menu-cardapio a:last-child {
+            margin-bottom: 0;
+        }
+
+        .menu-lateral#menu-sobre a {
+            margin-bottom: 160px;
+        }
+
+        .menu-lateral#menu-sobre a:last-child {
+            margin-bottom: 0;
+        }
+
+        .menu-lateral a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
 <body>
-  <!-- Botão de Acessibilidade -->
-  <button class="btn-acessibilidade" onclick="alert('Modo de acessibilidade em breve disponível!')">
-    Acessibilidade
-  </button>
-
-  <!-- Botão WhatsApp -->
-  <a class="whatsapp-fale" href="https://wa.me/55119990005" target="_blank">
-    Fale Conosco
-  </a>
-
-  <header class="home-header">
-    <h1>Bem-vindo ao K-afé ☕</h1>
-    <p>O seu lugar de momentos especiais e cafés inesquecíveis.</p>
-  </header>
-
-  <section class="historia">
-    <h2>Quem Somos</h2>
-    <p>
-      Fundado em 2005, o <strong>K-afé</strong> nasceu da paixão por cafés especiais e momentos acolhedores. Inspirado nas cafeterias parisienses e no calor da cultura brasileira, somos um espaço onde o aroma do café se mistura com boas conversas, risadas e sabores inesquecíveis.
-    </p>
-  </section>
-
-  <section class="opcoes-pedido">
-    <h2>Como você quer fazer o seu pedido?</h2>
-    <div class="opcao">
-      <button onclick="location.href='pedido_ifood.html'">Pedir pelo Ifood</button>
+    <nav>
+        <a id="cardapio-link">Cardápio</a>
+        <div class="menu-lateral left" id="menu-cardapio">
+            <a href="bebidas-frias.html">Bebidas Frias</a>
+            <a href="bebidas-quentes.html">Bebidas Quentes</a>
+            <a href="doces.html">Doces</a>
+        </div>
+        <a id="sobre-link">Sobre</a>
+        <div class="menu-lateral right" id="menu-sobre">
+            <a href="nossa-historia.html">Nossa História</a>
+            <a href="#missao">Missão, Visão e<br>Valores</a>
+            <a href="nosso-time.html">Nosso Time</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="logo-container">
+            <img src="imagens/page1.png" alt="K-afe Logo">
+        </div>
+        <a href="home.html" class="explore-button">Explorar</a>
     </div>
-    <div class="opcao">
-      <button onclick="location.href='pedido_retirar.html'">Retirar na loja</button>
-    </div>
-    <div class="opcao">
-      <button onclick="location.href='pedido_local.html'">Consumir na cafeteria</button>
-    </div>
-  </section>
 
-  <footer>
-    <p>&copy; 2025 K-afé. Todos os direitos reservados.</p>
-  </footer>
+    <script>
+        const cardapioLink = document.getElementById('cardapio-link');
+        const sobreLink = document.getElementById('sobre-link');
+        const menuCardapio = document.getElementById('menu-cardapio');
+        const menuSobre = document.getElementById('menu-sobre');
+
+        function closeAllMenus() {
+            menuCardapio.classList.remove('active');
+            menuSobre.classList.remove('active');
+        }
+
+        cardapioLink.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeAllMenus();
+            menuCardapio.classList.add('active');
+        });
+
+        sobreLink.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeAllMenus();
+            menuSobre.classList.add('active');
+        });
+
+        menuCardapio.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        menuSobre.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', closeAllMenus);
+    </script>
 </body>
 </html>
-

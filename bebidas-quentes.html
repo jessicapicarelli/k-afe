@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-afe - Bebidas Quentes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FAF9F6;
+            font-family: 'Questrial', sans-serif;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: #361D20;
+            margin-bottom: 80px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .menu-item:nth-child(2) {
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+            margin-right: 100px;
+        }
+
+        .menu-item-info {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .menu-item-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #361D20;
+            margin-bottom: 15px;
+        }
+
+        .menu-item-price {
+            display: inline;
+            color: #361D20;
+        }
+
+        .menu-item-description {
+            font-size: 20px;
+            color: #361D20;
+            line-height: 1.4;
+        }
+
+        .menu-item-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background-color: #FAF9F6;
+        }
+
+        .bottom-nav a {
+            text-decoration: none;
+            color: #361D20;
+            font-size: 32px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title">BEBIDAS QUENTES</h1>
+
+    <div class="menu-grid">
+        <div class="menu-item">
+            <img src="imagens/Latte.jpeg" alt="Latte" class="menu-item-image">
+            <div class="menu-item-info">
+                <div class="menu-item-title">Latte - R$17</div>
+                <div class="menu-item-description">Café expresso servido com leite vaporizado.</div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="imagens/Matcha-Latte.jpeg" alt="Matcha Latte" class="menu-item-image">
+            <div class="menu-item-info">
+                <div class="menu-item-title">Matcha Latte - R$20</div>
+                <div class="menu-item-description">Leite vaporizado e matcha, criando uma fusão única de sabores.</div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <img src="imagens/Jespresso.jpeg" alt="Jespresso" class="menu-item-image">
+            <div class="menu-item-info">
+                <div class="menu-item-title">Jespresso - R$15</div>
+                <div class="menu-item-description">Espresso com grãos de café torrados no estilo japonês, com um sabor intenso e equilibrado.</div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#doces">Doces</a>
+        <a href="bebidas-frias.html">Bebidas Frias</a>
+        <a href="#menu">Menu</a>
+    </nav>
+</body>
+</html> 
