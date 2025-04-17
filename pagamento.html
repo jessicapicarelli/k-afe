@@ -181,8 +181,8 @@
             </div>
         </div>
 
-        <button class="finalizar-pedido" onclick="finalizarPedido()">
-            Finalizar Pedido
+        <button class="finalizar-pedido" onclick="seguirParaEndereco()">
+            Seguir
         </button>
     </div>
 
@@ -258,15 +258,25 @@
         }
 
         // Função para finalizar pedido
-        function finalizarPedido() {
+        function seguirParaEndereco() {
             const metodoPagamento = document.querySelector('.metodo-opcao.selecionado');
             if (!metodoPagamento) {
                 alert('Por favor, selecione um método de pagamento.');
                 return;
             }
             
-            alert('Pedido finalizado com sucesso!\nEm breve você receberá mais informações por e-mail.');
-            window.location.href = 'index.html';
+            const metodo = metodoPagamento.textContent.trim().toLowerCase();
+            let metodoParam = '';
+            
+            if (metodo.includes('crédito')) {
+                metodoParam = 'credito';
+            } else if (metodo.includes('débito')) {
+                metodoParam = 'debito';
+            } else if (metodo.includes('pix')) {
+                metodoParam = 'pix';
+            }
+            
+            window.location.href = `endereco-pagamento.html?metodo=${metodoParam}`;
         }
 
         // Inicializar a página

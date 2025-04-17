@@ -232,13 +232,14 @@
             };
 
             const itensSelecionados = Object.entries(pedido)
-                .filter(([_, quantidade]) => quantidade > 0)
-                .map(([item, quantidade]) => `${quantidade}x ${item}`)
-                .join('\n');
+                .filter(([_, quantidade]) => parseInt(quantidade) > 0);
 
-            if (itensSelecionados) {
-                alert('Pedido selecionado:\n\n' + itensSelecionados);
-                // Aqui você pode adicionar a lógica para enviar o pedido para um servidor
+            if (itensSelecionados.length > 0) {
+                const params = new URLSearchParams();
+                itensSelecionados.forEach(([item, quantidade]) => {
+                    params.append(encodeURIComponent(item), quantidade);
+                });
+                window.location.href = `pagamento.html?${params.toString()}`;
             } else {
                 alert('Por favor, selecione pelo menos um item para fazer o pedido.');
             }
