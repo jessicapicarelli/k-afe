@@ -16,7 +16,6 @@
             background-color: #FAF9F6;
             font-family: 'Questrial', sans-serif;
             min-height: 100vh;
-            padding: 40px;
         }
 
         .page-title {
@@ -77,6 +76,36 @@
             border-radius: 5px;
         }
 
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .quantity-selector button {
+            background-color: #361D20;
+            color: white;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-selector input {
+            width: 50px;
+            height: 25px;
+            text-align: center;
+            border: 1px solid #361D20;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -94,17 +123,41 @@
             font-size: 32px;
             font-weight: bold;
         }
+
+        .enviar-pedido {
+            background-color: #361D20;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            position: fixed;
+            bottom: 80px;
+            right: 40px;
+        }
+
+        .enviar-pedido:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
     <h1 class="page-title">BEBIDAS QUENTES</h1>
-
+    
     <div class="menu-grid">
         <div class="menu-item">
             <img src="imagens/Latte.jpeg" alt="Latte" class="menu-item-image">
             <div class="menu-item-info">
                 <div class="menu-item-title">Latte - R$17</div>
                 <div class="menu-item-description">Café expresso servido com leite vaporizado.</div>
+                <div class="quantity-selector">
+                    <button onclick="decrementQuantity('latte')">-</button>
+                    <input type="number" id="latte" value="0" min="0" onchange="validateQuantity(this)">
+                    <button onclick="incrementQuantity('latte')">+</button>
+                </div>
             </div>
         </div>
 
@@ -113,6 +166,11 @@
             <div class="menu-item-info">
                 <div class="menu-item-title">Matcha Latte - R$20</div>
                 <div class="menu-item-description">Leite vaporizado e matcha, criando uma fusão única de sabores.</div>
+                <div class="quantity-selector">
+                    <button onclick="decrementQuantity('matcha-latte')">-</button>
+                    <input type="number" id="matcha-latte" value="0" min="0" onchange="validateQuantity(this)">
+                    <button onclick="incrementQuantity('matcha-latte')">+</button>
+                </div>
             </div>
         </div>
 
@@ -121,6 +179,11 @@
             <div class="menu-item-info">
                 <div class="menu-item-title">Jespresso - R$15</div>
                 <div class="menu-item-description">Espresso com grãos de café torrados no estilo japonês, com um sabor intenso e equilibrado.</div>
+                <div class="quantity-selector">
+                    <button onclick="decrementQuantity('jespresso')">-</button>
+                    <input type="number" id="jespresso" value="0" min="0" onchange="validateQuantity(this)">
+                    <button onclick="incrementQuantity('jespresso')">+</button>
+                </div>
             </div>
         </div>
     </div>
@@ -130,5 +193,50 @@
         <a href="bebidas-frias.html">Bebidas Frias</a>
         <a href="#menu">Menu</a>
     </nav>
+
+    <a href="#" class="enviar-pedido" onclick="enviarPedido()">Enviar Pedido</a>
+
+    <script>
+        function incrementQuantity(id) {
+            const input = document.getElementById(id);
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decrementQuantity(id) {
+            const input = document.getElementById(id);
+            const value = parseInt(input.value);
+            if (value > 0) {
+                input.value = value - 1;
+            }
+        }
+
+        function validateQuantity(input) {
+            if (input.value < 0) {
+                input.value = 0;
+            }
+        }
+
+        function enviarPedido() {
+            const pedido = {
+                'Café Espresso': document.getElementById('espresso').value,
+                'Café com Leite': document.getElementById('cafe-leite').value,
+                'Cappuccino': document.getElementById('cappuccino').value,
+                'Mocha': document.getElementById('mocha').value
+            };
+
+            const itensSelecionados = Object.entries(pedido)
+                .filter(([_, quantidade]) => parseInt(quantidade) > 0);
+
+            if (itensSelecionados.length > 0) {
+                const params = new URLSearchParams();
+                itensSelecionados.forEach(([item, quantidade]) => {
+                    params.append(encodeURIComponent(item), quantidade);
+                });
+                window.location.href = `pagamento.html?${params.toString()}`;
+            } else {
+                alert('Por favor, selecione pelo menos um item para fazer o pedido.');
+            }
+        }
+    </script>
 </body>
 </html> 

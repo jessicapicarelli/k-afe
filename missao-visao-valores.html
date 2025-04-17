@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-afe - Missão, Visão e Valores</title>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #361D20;
+            font-family: 'Questrial', sans-serif;
+            color: white;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .center-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .valores-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: right;
+        }
+
+        .valores-item {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .valores-item strong {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding: 20px 0;
+        }
+
+        .bottom-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MISSÃO - VISÃO - VALORES</h1>
+        
+        <div class="content">
+            <div class="text-section">
+                <div class="section">
+                    <h2>Missão</h2>
+                    <p>Proporcionar uma experiência única com cafés especiais, combinando a tradição japonesa com inovação, criando um ambiente acolhedor onde cada xícara é servida com excelência e respeito ao tempo de apreciação.</p>
+                </div>
+                
+                <div class="section">
+                    <h2>Visão</h2>
+                    <p>Ser referência em cafeterias inspiradas na cultura japonesa, reconhecida pela qualidade dos produtos, atendimento excepcional e capacidade de inovar sem perder a essência tradicional do café.</p>
+                </div>
+            </div>
+
+            <img src="imagens/k-afe2.jpeg" alt="Interior da K-afe" class="center-image">
+
+            <div class="valores-list">
+                <h2>Valores</h2>
+                <div class="valores-item">
+                    <strong>Excelência</strong>
+                    Buscar sempre a melhor qualidade em cada detalhe servido.
+                </div>
+                <div class="valores-item">
+                    <strong>Tradição & Inovação</strong>
+                    Honrar os métodos clássicos do café japonês, mas sempre com um olhar para novas tendências.
+                </div>
+                <div class="valores-item">
+                    <strong>Hospitalidade (Omotenashi)</strong>
+                    Criar um ambiente acolhedor e respeitoso, onde cada cliente se sinta especial.
+                </div>
+                <div class="valores-item">
+                    <strong>Sustentabilidade</strong>
+                    Utilizar ingredientes e práticas que respeitam o meio ambiente.
+                </div>
+                <div class="valores-item">
+                    <strong>Paixão pelo Café</strong>
+                    Compartilhar conhecimento e promover uma cultura de apreciação do café.
+                </div>
+            </div>
+        </div>
+
+        <nav class="bottom-nav">
+            <a href="#" id="menu">Menu</a>
+            <a href="#" id="nossa-historia">Nossa História</a>
+            <a href="#" id="nosso-time">Nosso Time</a>
+        </nav>
+    </div>
+</body>
+</html> 

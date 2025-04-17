@@ -27,19 +27,13 @@
             color: white;
             width: 100vw;
             height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            position: relative;
         }
 
         .logo-container {
-            margin-bottom: 20px;
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: relative;
         }
 
         .logo-container img {
@@ -49,7 +43,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            z-index: -1;
+            z-index: 1;
         }
 
         .explore-button {
@@ -62,12 +56,15 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
+            position: absolute;
+            left: 50%;
+            top: 65%;
+            transform: translateX(-50%);
+            z-index: 2;
         }
 
         .explore-button:hover {
-            transform: scale(1.05);
+            transform: translateX(-50%) scale(1.05);
         }
 
         nav {
@@ -159,7 +156,7 @@
         <a id="sobre-link">Sobre</a>
         <div class="menu-lateral right" id="menu-sobre">
             <a href="nossa-historia.html">Nossa História</a>
-            <a href="#missao">Missão, Visão e<br>Valores</a>
+            <a href="missao-visao-valores.html">Missão, Visão e<br>Valores</a>
             <a href="nosso-time.html">Nosso Time</a>
         </div>
     </nav>

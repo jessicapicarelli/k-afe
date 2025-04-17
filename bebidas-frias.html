@@ -16,7 +16,6 @@
             background-color: #FAF9F6;
             font-family: 'Questrial', sans-serif;
             min-height: 100vh;
-            padding: 40px;
         }
 
         .page-title {
@@ -72,6 +71,36 @@
             border-radius: 5px;
         }
 
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .quantity-selector button {
+            background-color: #361D20;
+            color: white;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-selector input {
+            width: 50px;
+            height: 25px;
+            text-align: center;
+            border: 1px solid #361D20;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -95,16 +124,40 @@
             max-width: 600px;
             margin: 0 auto;
         }
+
+        .enviar-pedido {
+            background-color: #361D20;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            position: fixed;
+            bottom: 80px;
+            right: 40px;
+        }
+
+        .enviar-pedido:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
     <h1 class="page-title">BEBIDAS FRIAS</h1>
-
+    
     <div class="menu-grid">
         <div class="menu-item">
             <div class="menu-item-info">
                 <div class="menu-item-title">Iced Latte <span class="menu-item-price">- R$17</span></div>
                 <div class="menu-item-description">Café preto servido com leite e gelo.</div>
+                <div class="quantity-selector">
+                    <button onclick="decrementQuantity('iced-latte')">-</button>
+                    <input type="number" id="iced-latte" value="0" min="0" onchange="validateQuantity(this)">
+                    <button onclick="incrementQuantity('iced-latte')">+</button>
+                </div>
             </div>
             <img src="imagens/Iced-Latte.jpeg" alt="Iced Latte" class="menu-item-image">
         </div>
@@ -113,6 +166,11 @@
             <div class="menu-item-info">
                 <div class="menu-item-title">Matcha Iced Latte <span class="menu-item-price">- R$20</span></div>
                 <div class="menu-item-description">O tradicional Matcha Latte, mas gelado.</div>
+                <div class="quantity-selector">
+                    <button onclick="decrementQuantity('matcha-iced')">-</button>
+                    <input type="number" id="matcha-iced" value="0" min="0" onchange="validateQuantity(this)">
+                    <button onclick="incrementQuantity('matcha-iced')">+</button>
+                </div>
             </div>
             <img src="imagens/Matcha-Iced-Latte.jpeg" alt="Matcha Iced Latte" class="menu-item-image">
         </div>
@@ -121,6 +179,11 @@
             <div class="menu-item-info">
                 <div class="menu-item-title">Cold Brew <span class="menu-item-price">- R$15</span></div>
                 <div class="menu-item-description">Café extraído a frio por 12 horas, oferecendo uma bebida suave e refrescante.</div>
+                <div class="quantity-selector">
+                    <button onclick="decrementQuantity('cold-brew')">-</button>
+                    <input type="number" id="cold-brew" value="0" min="0" onchange="validateQuantity(this)">
+                    <button onclick="incrementQuantity('cold-brew')">+</button>
+                </div>
             </div>
             <img src="imagens/Cold-Brew.jpeg" alt="Cold Brew" class="menu-item-image">
         </div>
@@ -131,5 +194,49 @@
         <a href="#bebidas-quentes">Bebidas Quentes</a>
         <a href="#menu">Menu</a>
     </nav>
+
+    <a href="#" class="enviar-pedido" onclick="enviarPedido()">Enviar Pedido</a>
+
+    <script>
+        function incrementQuantity(id) {
+            const input = document.getElementById(id);
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decrementQuantity(id) {
+            const input = document.getElementById(id);
+            const value = parseInt(input.value);
+            if (value > 0) {
+                input.value = value - 1;
+            }
+        }
+
+        function validateQuantity(input) {
+            if (input.value < 0) {
+                input.value = 0;
+            }
+        }
+
+        function enviarPedido() {
+            const pedido = {
+                'Iced Latte': document.getElementById('iced-latte').value,
+                'Matcha Iced Latte': document.getElementById('matcha-iced').value,
+                'Cold Brew': document.getElementById('cold-brew').value
+            };
+
+            const itensSelecionados = Object.entries(pedido)
+                .filter(([_, quantidade]) => parseInt(quantidade) > 0);
+
+            if (itensSelecionados.length > 0) {
+                const params = new URLSearchParams();
+                itensSelecionados.forEach(([item, quantidade]) => {
+                    params.append(encodeURIComponent(item), quantidade);
+                });
+                window.location.href = `pagamento.html?${params.toString()}`;
+            } else {
+                alert('Por favor, selecione pelo menos um item para fazer o pedido.');
+            }
+        }
+    </script>
 </body>
 </html> 

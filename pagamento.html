@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-afe - Pagamento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FAF9F6;
+            font-family: 'Questrial', sans-serif;
+            min-height: 100vh;
+            padding: 40px;
+            color: #361D20;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .resumo-pedido {
+            margin-bottom: 40px;
+        }
+
+        .resumo-titulo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #361D20;
+            padding-bottom: 10px;
+        }
+
+        .item-pedido {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(54, 29, 32, 0.1);
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-nome {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .item-quantidade {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .item-preco {
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #361D20;
+        }
+
+        .total-texto {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .total-valor {
+            font-size: 32px;
+            font-weight: bold;
+            color: #361D20;
+        }
+
+        .metodos-pagamento {
+            margin-top: 40px;
+        }
+
+        .metodo-titulo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .metodo-opcoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .metodo-opcao {
+            background-color: #FAF9F6;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .metodo-opcao:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .metodo-opcao.selecionado {
+            background-color: #361D20;
+            color: white;
+        }
+
+        .finalizar-pedido {
+            background-color: #361D20;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: block;
+            margin: 40px auto 0;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .finalizar-pedido:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Resumo do Pedido</h1>
+        
+        <div class="resumo-pedido">
+            <h2 class="resumo-titulo">Itens Selecionados</h2>
+            <div id="itens-container">
+                <!-- Os itens serão inseridos aqui via JavaScript -->
+            </div>
+            <div class="total">
+                <span class="total-texto">Total do Pedido</span>
+                <span class="total-valor" id="valor-total">R$ 0,00</span>
+            </div>
+        </div>
+
+        <div class="metodos-pagamento">
+            <h2 class="metodo-titulo">Forma de Pagamento</h2>
+            <div class="metodo-opcoes">
+                <div class="metodo-opcao" onclick="selecionarMetodo(this)">
+                    Cartão de Crédito
+                </div>
+                <div class="metodo-opcao" onclick="selecionarMetodo(this)">
+                    Cartão de Débito
+                </div>
+                <div class="metodo-opcao" onclick="selecionarMetodo(this)">
+                    PIX
+                </div>
+            </div>
+        </div>
+
+        <button class="finalizar-pedido" onclick="finalizarPedido()">
+            Finalizar Pedido
+        </button>
+    </div>
+
+    <script>
+        // Preços dos produtos
+        const precos = {
+            'Iced Latte': 17,
+            'Matcha Iced Latte': 20,
+            'Cold Brew': 15,
+            'Latte': 17,
+            'Matcha Latte': 20,
+            'Jespresso': 15,
+            'Mochi': 15,
+            'Taiyaki': 20,
+            'Doce': 20,
+            'Dorayaki': 20
+        };
+
+        // Função para obter parâmetros da URL
+        function obterParametrosUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const pedido = {};
+            
+            for (const [key, value] of params.entries()) {
+                if (value > 0) {
+                    pedido[decodeURIComponent(key)] = parseInt(value);
+                }
+            }
+            
+            return pedido;
+        }
+
+        // Função para formatar preço
+        function formatarPreco(preco) {
+            return preco.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+        }
+
+        // Função para renderizar os itens do pedido
+        function renderizarItensPedido() {
+            const pedido = obterParametrosUrl();
+            const container = document.getElementById('itens-container');
+            let total = 0;
+
+            for (const [item, quantidade] of Object.entries(pedido)) {
+                const precoUnitario = precos[item];
+                const precoTotal = precoUnitario * quantidade;
+                total += precoTotal;
+
+                const itemElement = document.createElement('div');
+                itemElement.className = 'item-pedido';
+                itemElement.innerHTML = `
+                    <div class="item-info">
+                        <div class="item-nome">${item}</div>
+                        <div class="item-quantidade">${quantidade}x ${formatarPreco(precoUnitario)}</div>
+                    </div>
+                    <div class="item-preco">${formatarPreco(precoTotal)}</div>
+                `;
+                container.appendChild(itemElement);
+            }
+
+            document.getElementById('valor-total').textContent = formatarPreco(total);
+        }
+
+        // Função para selecionar método de pagamento
+        function selecionarMetodo(elemento) {
+            document.querySelectorAll('.metodo-opcao').forEach(opcao => {
+                opcao.classList.remove('selecionado');
+            });
+            elemento.classList.add('selecionado');
+        }
+
+        // Função para finalizar pedido
+        function finalizarPedido() {
+            const metodoPagamento = document.querySelector('.metodo-opcao.selecionado');
+            if (!metodoPagamento) {
+                alert('Por favor, selecione um método de pagamento.');
+                return;
+            }
+            
+            alert('Pedido finalizado com sucesso!\nEm breve você receberá mais informações por e-mail.');
+            window.location.href = 'index.html';
+        }
+
+        // Inicializar a página
+        window.onload = renderizarItensPedido;
+    </script>
+</body>
+</html> 
