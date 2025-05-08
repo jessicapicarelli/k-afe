@@ -29,7 +29,7 @@
         .menu-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 100px;
+            gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -37,13 +37,13 @@
         .menu-item {
             display: flex;
             align-items: flex-start;
-            gap: 40px;
+            gap: 20px;
         }
 
         .menu-item:nth-child(2) {
             flex-direction: row-reverse;
             justify-content: flex-start;
-            margin-right: 100px;
+            margin-right: 40px;
         }
 
         .menu-item-info {
@@ -189,9 +189,9 @@
     </div>
 
     <nav class="bottom-nav">
-        <a href="#doces">Doces</a>
+        <a href="doces.html">Doces</a>
         <a href="bebidas-frias.html">Bebidas Frias</a>
-        <a href="#menu">Menu</a>
+        <a href="home.html">Menu</a>
     </nav>
 
     <a href="#" class="enviar-pedido" onclick="enviarPedido()">Enviar Pedido</a>
@@ -231,6 +231,7 @@
                 itensSelecionados.forEach(([item, quantidade]) => {
                     params.append(encodeURIComponent(item), quantidade);
                 });
+                params.append('origem', 'bebidas-quentes');
                 window.location.href = `pagamento.html?${params.toString()}`;
             } else {
                 alert('Por favor, selecione pelo menos um item para fazer o pedido.');

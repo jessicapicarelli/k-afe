@@ -198,7 +198,7 @@
     <nav class="bottom-nav">
         <a href="bebidas-frias.html">Bebidas Frias</a>
         <a href="bebidas-quentes.html">Bebidas Quentes</a>
-        <a href="#menu">Menu</a>
+        <a href="home.html">Menu</a>
     </nav>
 
     <a href="#" class="enviar-pedido" onclick="enviarPedido()">Enviar Pedido</a>
@@ -239,6 +239,7 @@
                 itensSelecionados.forEach(([item, quantidade]) => {
                     params.append(encodeURIComponent(item), quantidade);
                 });
+                params.append('origem', 'doces');
                 window.location.href = `pagamento.html?${params.toString()}`;
             } else {
                 alert('Por favor, selecione pelo menos um item para fazer o pedido.');

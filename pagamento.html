@@ -140,14 +140,36 @@
             font-size: 20px;
             cursor: pointer;
             transition: transform 0.3s ease;
-            display: block;
-            margin: 40px auto 0;
-            width: 100%;
+            display: inline-block;
+            margin: 40px 10px 0;
+            width: calc(50% - 20px);
             max-width: 300px;
         }
 
-        .finalizar-pedido:hover {
+        .voltar {
+            background-color: #FAF9F6;
+            color: #361D20;
+            padding: 15px 40px;
+            border: 2px solid #361D20;
+            border-radius: 25px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            margin: 40px 10px 0;
+            width: calc(50% - 20px);
+            max-width: 300px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .finalizar-pedido:hover, .voltar:hover {
             transform: scale(1.05);
+        }
+
+        .botoes-container {
+            text-align: center;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -181,9 +203,12 @@
             </div>
         </div>
 
-        <button class="finalizar-pedido" onclick="seguirParaEndereco()">
-            Seguir
-        </button>
+        <div class="botoes-container">
+            <a href="javascript:void(0)" onclick="voltarParaOrigem()" class="voltar">Voltar</a>
+            <button class="finalizar-pedido" onclick="seguirParaEndereco()">
+                Seguir
+            </button>
+        </div>
     </div>
 
     <script>
@@ -207,12 +232,24 @@
             const pedido = {};
             
             for (const [key, value] of params.entries()) {
-                if (value > 0) {
+                if (value > 0 && key !== 'origem') {
                     pedido[decodeURIComponent(key)] = parseInt(value);
                 }
             }
             
             return pedido;
+        }
+
+        // Função para voltar para a página de origem
+        function voltarParaOrigem() {
+            const params = new URLSearchParams(window.location.search);
+            const origem = params.get('origem');
+            if (origem) {
+                window.location.href = `${origem}.html`;
+            } else {
+                window.history.back();
+            }
+            return false; // Previne o comportamento padrão do link
         }
 
         // Função para formatar preço
